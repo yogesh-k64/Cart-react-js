@@ -4,7 +4,7 @@
     git clone https://github.com/yogesh-k64/Cart-react-js.git
 
     Open PDFtron directory
-    $ cd cart
+    $ cd Cart-react-js
 
     Install required packages using package.json
     $ npm install
