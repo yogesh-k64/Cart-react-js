@@ -1,0 +1,18 @@
+.App {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: rgb(249, 247, 250);
+}
+.itemInnerContainer{
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.orderButton{
+    padding: 10px;
+    margin: 10px;
+}
+

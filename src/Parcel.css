@@ -1,0 +1,14 @@
+.parcelContainer {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(0, 0, 0,0.3);
+    padding: 10px;
+}
+.column{
+    width: 20%;
+    padding: 20px 10px;
+}
