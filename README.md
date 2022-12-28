@@ -1,7 +1,7 @@
 
 # Installation
     Do clone below repository
-    git clone <repo url>
+    git clone https://github.com/yogesh-k64/Cart-react-js.git
 
     Open PDFtron directory
     $ cd cart

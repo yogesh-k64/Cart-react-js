@@ -7,7 +7,7 @@ import Parcel from "./Parcel";
 const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [parcels, setParcels] = useState([]);
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
 
   const handleSelection = (item, event) => {
     const checked = event.target.checked;
@@ -31,9 +31,7 @@ const App = () => {
       { min: 1000, max: 5000 },
     ];
     let sortedArr = selectedItems.sort((a, b) => b.Weight - a.Weight);
-
     let maxWeight = sortedArr[0].Weight;
-    console.log(sortedArr, maxWeight);
     let selectedRange;
     for (let range of weightRanges) {
       if (range.min <= maxWeight && range.max > maxWeight) {
@@ -41,15 +39,12 @@ const App = () => {
         break;
       }
     }
-    console.log(selectedRange);
     let parcelArr = [];
     let tempIndex = 0;
-    for (let i = 0; i < sortedArr.length; i++) {
-      let val = sortedArr[i];
+    sortedArr.map((val, i) => {
       totalWeight += val.Weight;
       totalPrice += val.Price;
       if (selectedRange.min <= totalWeight && selectedRange.max > totalWeight) {
-
         if (totalPrice <= 250) {
           parcelArr.push(
             i == 0
@@ -64,7 +59,7 @@ const App = () => {
         totalPrice = 0;
         totalWeight = 0;
       }
-    }
+    });
     if (tempIndex !== sortedArr.length - 1) {
       totalPrice = 0;
       totalWeight = 0;
@@ -74,29 +69,26 @@ const App = () => {
         totalWeight += val.Weight;
         totalPrice += val.Price;
         if (totalPrice > 250) {
-
           parcelArr.push(sortedArr.slice(priceIndex, i));
           priceIndex = i;
           totalPrice = sortedArr[i].Price;
-        } 
+        }
       }
       parcelArr.push(sortedArr.slice(priceIndex));
     }
 
     setParcels(parcelArr);
-    setToggle(value=>!value)
+    setToggle((value) => !value);
   };
-
 
   return (
     <div className="App">
       {toggle ? (
         <div>
           <h2>Cart</h2>
-          {parcels.map((pack,index)=>{
-            return <Parcel parcel={pack} number={index+1}/>
+          {parcels.map((pack, index) => {
+            return <Parcel parcel={pack} number={index + 1} />;
           })}
-          
         </div>
       ) : (
         <Fragment>
